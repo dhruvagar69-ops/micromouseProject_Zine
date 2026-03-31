@@ -186,9 +186,9 @@ void update_wall_debug(std::vector<std::vector<int>>& arr) {
             }
             if (maze.cells[i][j].dead == true) {
                 API::setText(i, j, "Dead");
-                API::setColor(i, j, 'r');       // red = dead end
+                API::setColor(i, j, 'r');
             } else if (maze.cells[i][j].visited == true) {
-                API::setColor(i, j, 'g');        // green = visited
+                API::setColor(i, j, 'g');
                 API::setText(i, j, value);
             } else {
                 API::clearColor(i, j);
@@ -481,7 +481,7 @@ int main(int argc, char* argv[])
     init_arr(arr, rows, cols);
 
 #if GOAL_4CELLS == 1
-    init_flood(arr, GOAL4_ROW, GOAL4_COL);   // ← was GOAL_ROW/COL, wrong!
+    init_flood(arr, GOAL4_ROW, GOAL4_COL);
 #else
     init_flood(arr, GOAL_ROW, GOAL_COL);
 #endif
@@ -491,7 +491,7 @@ int main(int argc, char* argv[])
     coord start = {START_ROW, START_COL, arr[START_ROW][START_COL]};
 
 #if GOAL_4CELLS == 1
-    coord dest = {GOAL4_ROW, GOAL4_COL, arr[GOAL4_ROW][GOAL4_COL]};  // ← fixed
+    coord dest = {GOAL4_ROW, GOAL4_COL, arr[GOAL4_ROW][GOAL4_COL]};
     API::setColor(GOAL4_ROW,     GOAL4_COL,     'r');
     API::setColor(GOAL4_ROW + 1, GOAL4_COL,     'r');
     API::setColor(GOAL4_ROW,     GOAL4_COL + 1, 'r');
@@ -523,7 +523,7 @@ int main(int argc, char* argv[])
         new_coord = floodfill(new_coord, start, arr, angle_now);
 
 #if GOAL_4CELLS == 1
-        init_flood_start(arr, GOAL4_ROW, GOAL4_COL, 2);  // ← fixed
+        init_flood_start(arr, GOAL4_ROW, GOAL4_COL, 2);
 #else
         init_flood_start(arr, GOAL_ROW, GOAL_COL, 2);
 #endif
@@ -555,7 +555,7 @@ int main(int argc, char* argv[])
         new_coord = floodfill(new_coord, start, arr, angle_now);
 
 #if GOAL_4CELLS == 1
-        init_flood_start(arr, GOAL4_ROW, GOAL4_COL, 2);  // ← fixed
+        init_flood_start(arr, GOAL4_ROW, GOAL4_COL, 2);
 #else
         init_flood_start(arr, GOAL_ROW, GOAL_COL, 2);
 #endif
