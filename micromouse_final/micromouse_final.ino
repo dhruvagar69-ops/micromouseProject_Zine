@@ -211,7 +211,7 @@ void turnRight() {
     
     update_yaw();
     float yaw_error = current_yaw - target_yaw;
-    while (abs(yaw_error) > 1.5f) {
+    while (abs(yaw_error) > 4.0f) {
         update_yaw();
         yaw_error = current_yaw - target_yaw;
         if (yaw_error > 0) { set_motor1(60);  set_motor2(-60); }
@@ -237,7 +237,7 @@ void turnLeft() {
 
     update_yaw();
     float yaw_error = current_yaw - target_yaw;
-    while (abs(yaw_error) > 1.5f) {
+    while (abs(yaw_error) > 4.0f) {
         update_yaw();
         yaw_error = current_yaw - target_yaw;
         if (yaw_error < 0) { set_motor1(-60); set_motor2(60);  }
